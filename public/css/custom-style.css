@@ -1,0 +1,21 @@
+.create-buttons, .show-buttons, .edit-buttons, .delete-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 1rem;
+    gap: 1rem
+}
+
+.table-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.edit-form, .new-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin-left: 25%;
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <link href="{{ asset('css/custom-style.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">{{ form_title }}</h1>
+    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ contact.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone_number</th>
+                <td>{{ contact.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ contact.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="show-buttons">
+        <a class="btn btn-primary btn-group btn-user" href="{{ path('app_contact_index') }}">Back to list</a>
+        <a class="btn btn-primary btn-group btn-user" href="{{ path('app_contact_edit', {'id': contact.id}) }}">Edit</a>
+    </div>
+    {{ include('contacts/_delete_form.html.twig') }}
+{% endblock %}

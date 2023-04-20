@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom-style.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Contacts list</h1>
+        <p class="mb-4" style="margin-left:90%"><a class="btn btn-primary" href="{{ path('app_contact_new') }}">Create new</a></p>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone_number</th>
+                                <th>Address</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for contact in contacts %}
+                            <tr>
+                                <td>{{ contact.id }}</td>
+                                <td>{{ contact.name }}</td>
+                                <td>{{ contact.email }}</td>
+                                <td>{{ contact.phoneNumber }}</td>
+                                <td>{{ contact.address }}</td>
+                                <td class="table-actions">
+                                    <a class="btn btn-primary" href="{{ path('app_contact_show', {'id': contact.id}) }}">show</a>
+                                    <a class="btn btn-warning" href="{{ path('app_contact_edit', {'id': contact.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+{% endblock %}

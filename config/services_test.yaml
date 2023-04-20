@@ -1,0 +1,5 @@
+services:
+    # redefine the alias as it should be while making it public
+    App\Repository\Contracts\ContactRepositoryInterface:
+        alias: App\Repository\ContactRepository
+        public: true
